@@ -1,7 +1,6 @@
 package practice;
 
 import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,7 +14,8 @@ public class JenkinParameter {
 	public void parameterTest() throws InterruptedException {
 		WebDriver driver = null;
 		String browser = System.getProperty("browser");
-		String ulr = System.getProperty("url");
+		String url = System.getProperty("url");
+		System.out.println(browser+"\n"+url);
 		
 		switch(browser) {
 		case "chrome" : WebDriverManager.chromedriver().setup();
@@ -29,7 +29,7 @@ public class JenkinParameter {
             break;           
 		}
 		driver.manage().window().maximize();
-		driver.get(ulr);
+		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		Thread.sleep(3000);
 		driver.quit();
